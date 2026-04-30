@@ -87,6 +87,8 @@ bodyAttrs: {
 </script>
 
 <style lang="less">
+@bw1660: ~"(max-width: 1660px)";
+@bw768: ~"(max-width: 768px)";
 .app {
   box-sizing: border-box;
   display: flex;
