@@ -1,0 +1,57 @@
+.radio {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  
+  &__item {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 23px;
+    padding-left: 45px;
+    color: @black;
+    cursor: pointer;
+  }
+
+  &__mark {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    border: 2px solid @black;
+    border-radius: 50%;
+    padding: 3px;
+    background-clip: content-box;
+    background-color: transparent;
+    transition: background-color 0.2s;
+  }
+
+  &__input {
+    .is-hidden();
+    &:checked {
+      &~.radio__mark {
+        background-color: @black;
+      }
+    }
+  }
+
+  &__label {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.375;
+  }
+
+  &__caption {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 23px;
+    padding-left: 45px;
+    color: @black;
+    cursor: pointer;
+    margin-bottom: 15px;
+  }
+}

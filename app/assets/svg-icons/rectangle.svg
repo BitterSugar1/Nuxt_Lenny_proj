@@ -1,0 +1,9 @@
+<svg viewBox="0 0 160 1" xmlns="http://www.w3.org/2000/svg" fill="none" customFrame="#000000">
+	<defs>
+		<linearGradient id="paint_linear_0" x1="160" x2="27.4285736" y1="0" y2="0" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(28,27,27)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(255,255,255)" offset="1" stop-opacity="0" />
+		</linearGradient>
+	</defs>
+	<rect id="Rectangle 141" width="160.000000" height="1.000000" x="0.000000" y="0.000000" fill="url(#paint_linear_0)" transform="matrix(-1,0,0,-1,160,1)" />
+</svg>

@@ -1,0 +1,144 @@
+.field {
+  display: flex;
+  flex-direction: column;
+
+ 
+  
+  label.error,
+  span.error {
+    display: block;
+    margin: 5px 0 0;
+    color: @red;
+  }
+  
+
+  &__input,
+  &__textarea,
+  &__select {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: @white;
+    font-size: 16px;
+    line-height: 1.375;
+
+  }
+
+  &__input,
+  select {
+    height: 55px;
+    padding: 0 20px;
+  }
+&__input {
+  &--text {
+    height: 149px;
+  }
+    &--footer {
+      width: 270px;
+      height: 49px;
+       box-sizing: border-box;
+    display: flex;
+  border: @white;
+    border-radius: 5px;
+    background-color: @white;
+    padding-left: 28px;
+    }
+  }
+  &__textarea {
+    height: 150px;
+    padding: 20px;
+
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: @black;
+    line-height: 1.3;
+    
+    &--text {
+      font-size: 18px;
+      font-weight: 700;
+    }
+  }
+
+  &__title {
+    display: block;
+    margin: 0 0 10px;
+    font-size: 18px;
+    font-weight: 700;
+    color: @black;
+    line-height: 25px;
+    @media @bw400 {
+      font-size: 16px;
+      line-height: 22px;
+      
+    }
+  }
+
+  &__date {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 250px;
+  }
+
+  &__date-inputs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    height: 55px;
+    pointer-events: none;
+  }
+
+  &__date-input {
+    box-sizing: border-box;
+    display: block;
+    width: 55px;
+    height: 55px;
+    margin-right: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: @white;
+    padding: 0 5px;
+    font-size: 16px;
+    line-height: 1.375;
+    text-align: center;
+    pointer-events: none;
+
+    @media @bw400 {
+      font-size: 14px;
+    }
+    &--year {
+      flex-grow: 1;
+      margin-right: 0;
+    }
+  }
+
+  &__date-picker {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    max-width: 250px;
+    height: 55px;
+    border: none;
+    border-radius: 5px;
+    opacity: 0;
+    cursor: pointer; 
+  }
+ 
+  &__fieldset {
+    border: none;
+  }
+
+  &__error {
+    color: @red;
+  }
+}

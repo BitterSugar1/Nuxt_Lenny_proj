@@ -1,0 +1,55 @@
+.more-btn {
+  display: inline-flex;
+  box-sizing: border-box;
+  padding: 15px 40px;
+  border: 1px solid @black;
+  text-decoration: none;
+  background-color: transparent;
+  outline: none;
+  color: @black;
+  font-family: @font1;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.375;
+  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+
+  &:hover {
+    color: @red;
+      text-decoration-color: @red;
+  }
+
+  &__arrow {
+  flex-shrink: 0;
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 92px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: @black;
+  font-size: 0;
+  text-decoration: none;
+  transition: color 0.2s;
+  cursor: pointer;
+
+  &:active {
+    color: @red;
+  }
+  &:hover {
+    @media (hover: hover) {
+      color: @red;
+    }
+  }
+  
+  &--left {
+    .arrow__icon {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+}
