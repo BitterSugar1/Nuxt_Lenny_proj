@@ -24,17 +24,17 @@
 </template>
 
 <script setup>
+  import { useJsonCollection } from "@/data-api";
+
   const list = ref([]);
+  const { data: blogFeed } = await useJsonCollection("blog-list", "/json/blog.json");
 
-  const URL = "http://localhost:3000/json/blog.json";
-
-  const { data } = await useAsyncData(`blog`, () => {
-    return $fetch(URL);
-  });
-  if (data?.value) list.value = data.value;
+  if (blogFeed.value) {
+    list.value = blogFeed.value;
+  }
 </script>
 
-<style lang="less">
+<style scoped lang="less">
   .events {
   padding: 110px 0 100px;
 
@@ -69,6 +69,7 @@
 
   &__container {
   .container();
+}
 
   &__listing {
     display: block;
@@ -91,7 +92,6 @@
     text-decoration: none;
     transition: color 0.2s;
   }
-}
 }
 
 .arrow {

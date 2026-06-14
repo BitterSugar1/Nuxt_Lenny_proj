@@ -29,13 +29,11 @@
     </div>
 
     <label class="subscribe-form__check check">
-            <input 
+            <input
             v-model="agreement"
-        :true-value="1"
-        :false-value="0"
         type="checkbox"
         class="check__input"
-        required  
+        required
         />
 
             <span class="check__mark"></span>
@@ -68,8 +66,10 @@ const submitCount = ref(0);
     submitCount.value += 1;
     if (!email.value || !emailIsValid.value || !agreement.value) return;
 
-    console.log({ email: email.value, agreement: agreement.value });
     alert("Подписка оформлена");
+    email.value = "";
+    agreement.value = 0;
+    submitCount.value = 0;
   };
 </script>
 

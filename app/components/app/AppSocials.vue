@@ -1,6 +1,11 @@
 <template>
   <div class="app-socials">
-    <a href="#" rel="nofollow noreferrer noopener" class="app-socials__link">
+    <a
+      href="https://www.instagram.com/"
+      rel="nofollow noreferrer noopener"
+      target="_blank"
+      class="app-socials__link"
+    >
       <SvgIcon
         class="app-socials__icon"
         name="soc_insta"
@@ -8,7 +13,12 @@
         height="58"
       />
     </a>
-    <a href="#" class="app-socials__link">
+    <a
+      href="https://vk.com/"
+      rel="nofollow noreferrer noopener"
+      target="_blank"
+      class="app-socials__link"
+    >
       <SvgIcon class="app-socials__icon" name="soc_vk" width="58" height="58" />
     </a>
   </div>

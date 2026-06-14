@@ -27,10 +27,10 @@
   display: flex;
   flex-direction: column;
 
-   @media @bw650 {
+  @media @bw650 {
     width: 100%;
-    mmin-width: 280px;
-   }
+    min-width: 280px;
+  }
 
   .container();
 

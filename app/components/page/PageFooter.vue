@@ -4,11 +4,11 @@
 
     <div class="page-footer__wrapper">
       <nav class="page-footer__nav">
-        <a href="#" class="page-footer__nav-link">Календарь мероприятий</a>
-        <a href="#" class="page-footer__nav-link">Провести мероприятие</a>
-        <a href="#" class="page-footer__nav-link">Стать арендатором</a>
-        <a href="#" class="page-footer__nav-link">Наши проекты</a>
-        <a href="#" class="page-footer__nav-link">Контакты</a>
+        <NuxtLink to="/events" class="page-footer__nav-link">Календарь мероприятий</NuxtLink>
+        <NuxtLink to="/events" class="page-footer__nav-link">Провести мероприятие</NuxtLink>
+        <NuxtLink to="/about" class="page-footer__nav-link">Стать арендатором</NuxtLink>
+        <NuxtLink to="/about" class="page-footer__nav-link">Наши проекты</NuxtLink>
+        <NuxtLink to="/contacts" class="page-footer__nav-link">Контакты</NuxtLink>
       </nav>
 
       <SubscribeForm class="page-footer__subscribe-form" />
@@ -21,10 +21,10 @@
         </div>
 
         <div class="page-footer__terms-links">
-          <a href="#" class="page-footer__terms-link"
-            >Политика конфедециальности</a
+          <NuxtLink to="/about" class="page-footer__terms-link"
+            >Политика конфедециальности</NuxtLink
           >
-          <a href="#" class="page-footer__terms-link">Cookies</a>
+          <NuxtLink to="/about" class="page-footer__terms-link">Cookies</NuxtLink>
         </div>
       </div>
 
@@ -32,7 +32,12 @@
 
 
       <div class="page-footer__devs">
-        <a href="#" class="page-footer__devs-link">
+        <a
+          href="https://d-e-n.ru/"
+          class="page-footer__devs-link"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
           Создание и продвижение
 
           <SvgIcon

@@ -24,14 +24,15 @@
   display: flex;
   flex-direction: column;
 
-   @media @bw650 {
+  @media @bw650 {
     width: 100%;
-    mmin-width: 280px;
-   }
+    min-width: 280px;
+  }
 
   &__list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 115px 58px;
 
     @media @bw1660 {

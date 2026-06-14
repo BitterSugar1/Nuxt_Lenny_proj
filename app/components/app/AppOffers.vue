@@ -25,13 +25,13 @@
 </template>
 
 <script setup>
- const store = useStore();
+ const uiStore = useUiStore();
   const openPopup = () => {
-    store.openModal("getOffer");
+    uiStore.openModal("getOffer");
   };
 
   const closePopup = () => {
-    store.closeModal("getOffer");
+    uiStore.closeModal("getOffer");
   };
 </script>
 

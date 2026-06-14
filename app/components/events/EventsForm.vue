@@ -130,7 +130,7 @@
       name="agreement"
       :rules="{ required: true }"
       :submitCount="submitCount"
-      :label="`Я соглашаюсь с <a href='#' target='_blank'>пользовательским соглашением</a> и с <a href='#' target='_blank'>политикой</a> использования персональных данных`"
+      :label="`Я соглашаюсь с <a href='/about' target='_blank'>пользовательским соглашением</a> и с <a href='/contacts' target='_blank'>политикой</a> использования персональных данных`"
       smallLabel
       class="form__field"
     />
@@ -153,16 +153,15 @@
 
   const emits = defineEmits(["close"]);
 
-  const { submitCount, handleSubmit } = useForm();
+  const { submitCount, handleSubmit, resetForm } = useForm();
 
   const close = () => {
     emits("close");
   };
 
-  const onSubmit = handleSubmit((submitValues) => {
-    console.log(submitValues);
+  const onSubmit = handleSubmit(() => {
     alert("Отправлено");
-
+    resetForm();
     close();
   });
 </script>
@@ -268,7 +267,7 @@
 
   &__close-btn {
     margin-left: 226px;
-    padding: 4px auto;
+    padding: 4px 0;
     border: none;
     background: transparent;
     color: @black;

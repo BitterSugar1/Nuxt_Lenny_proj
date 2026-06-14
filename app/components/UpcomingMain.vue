@@ -8,7 +8,7 @@
           :list="list"
           class="events-upcoming__swiper"
         />
-      <a href="#" class="listing__link link">Смотреть все</a>
+      <NuxtLink to="/events" class="listing__link link">Смотреть все</NuxtLink>
     </div>
   </div>
 </section>
@@ -16,14 +16,14 @@
 
 <script setup>
 import { EventCard } from "#components";
+import { useJsonCollection } from "@/data-api";
+
 const list = ref([]);
+const { data: eventsFeed } = await useJsonCollection("upcoming", "/json/events.json");
 
-const URL = "http://localhost:3000/json/events.json";
-
-  const { data } = await useAsyncData(`upcoming`, () => {
-    return $fetch(URL);
-  });
-  if (data?.value) list.value = data.value;
+if (eventsFeed.value) {
+  list.value = eventsFeed.value;
+}
 </script>
 
 <style lang="less">
@@ -180,7 +180,7 @@ const URL = "http://localhost:3000/json/events.json";
 
    @media @bw650 {
     width: 100%;
-    mmin-width: 280px;
+    min-width: 280px;
    }
 
   .container();

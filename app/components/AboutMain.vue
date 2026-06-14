@@ -14,14 +14,13 @@
     </div>
     <div class="about__block2">
       <picture class="about__picture1">
-
-        <img src="assets/images/pic1.jpg" class="about__img about__img--1" alt="pic1">
+        <img :src="aboutImageFirst" class="about__img about__img--1" alt="Люди на мероприятии">
       </picture>
       <h3 class="about__title">
         Мы предоставляем площади для вашего мероприятия
       </h3>
       <picture class="about__picture2">
-        <img src="assets/images/pic2.jpg" class="about__img about__img--2" alt="pic2">
+        <img :src="aboutImageSecond" class="about__img about__img--2" alt="Подготовка площадки">
       </picture>
       <p class="about__text">
         И оказываем помощь с организацией, если вам это нужно. Наша цель: вовлечь в культурную жизнь города как можно
@@ -32,7 +31,7 @@
 
     <div class="about__block3">
       <div class="about__picture3">
-          <img src="/assets/images/pic3.jpg" class="about__img about__img--3" alt="pic3" />
+          <img :src="aboutImageThird" class="about__img about__img--3" alt="Гости на событии" />
       </div>
 
       <p class="about__text2">
@@ -40,7 +39,7 @@
       </p>
 
       <div class="about__arrow arrow">
-      <a href="#" class="about__link">
+      <NuxtLink to="/about" class="about__link">
         <span class="about__link">Смотреть</span> 
         <div class="arrow__icon">
 
@@ -51,7 +50,7 @@
         height="62"
       />
         </div>
-      </a>
+      </NuxtLink>
     </div>
     </div>
 
@@ -61,7 +60,9 @@
 </template>
 
 <script setup>
-
+import aboutImageFirst from "@/assets/images/pic1.jpg";
+import aboutImageSecond from "@/assets/images/pic2.jpg";
+import aboutImageThird from "@/assets/images/pic3.jpg";
 </script>
 
 <style lang="less">
@@ -182,7 +183,6 @@
       grid-template-areas:
         "pic3 pic3"
         "text2 arrow";
-      margin-top: 52px;
     }
 
     @media @bw768 {
@@ -287,7 +287,7 @@
       max-height: 50%;
       height: 246px;
       min-height: 74px;
-      background-color: (rgba(188, 51, 36, 1));
+      background-color: rgba(188, 51, 36, 1);
       // transform: translateX(35px);
       padding-top: auto;
 

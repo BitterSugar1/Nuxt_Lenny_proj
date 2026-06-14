@@ -45,7 +45,7 @@
       </div>
 
     </div>
-    <div class="contacts__square-map"  width="750" height="491">
+    <div class="contacts__square-map">
 <TheMap/>
     </div>
   </div>
@@ -140,7 +140,7 @@
       grid-template-rows: 110px 1fr;
       gap: 30px 0;
       grid-template-areas:
-        "square blok";
+        "square" "blok";
 
     }
   }
@@ -161,7 +161,7 @@
       grid-template-rows: 110px 1fr;
       gap: 30px 0;
       grid-template-areas:
-        "square blok";
+        "square" "blok";
 
     }
   }
@@ -182,7 +182,7 @@
       grid-template-rows: 110px 1fr;
       gap: 30px 0;
       grid-template-areas:
-        "square blok";
+        "square" "blok";
 
     }
   }
@@ -305,13 +305,17 @@
 
   &__text {
     display: block;
+    position: relative;
+    z-index: 1;
     text-align: center;
     justify-items: center;
     color: @black;
     font-family: @font3;
     font-size: 128px;
     font-weight: 700;
-    height: 308px;
+    line-height: 1.15;
+    min-height: 308px;
+    padding-bottom: 40px;
     margin-bottom: 140px;
 
     @media @bw1340 {
@@ -322,18 +326,22 @@
     @media @bw1170 {
       font-size: 100px;
       font-weight: 700;
+      min-height: 0;
     }
 
     @media @bw768 {
       font-size: 80px;
       font-weight: 700;
+      min-height: 0;
+      padding-bottom: 24px;
     }
 
     @media @bw370 {
       font-size: 40px;
       font-weight: 700;
       width: 446px;
-      height: 162px;
+      min-height: 162px;
+      padding-bottom: 16px;
       margin-bottom: 0;
     }
   }

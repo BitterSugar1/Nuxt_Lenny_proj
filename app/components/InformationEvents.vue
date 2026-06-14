@@ -57,6 +57,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin-bottom: 150px;
   margin-top: 100px;
 
@@ -68,8 +69,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: 120px 58px;
-
     justify-content: center;
+    width: 100%;
+    max-width: 1334px;
   }
 
   &__square {
@@ -101,10 +103,13 @@
   &__price,
   &__contact,
   &__handshake {
-    display: block;
-    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 401px;
-    height: 253px;
+    max-width: 100%;
+    min-height: 253px;
+    text-align: center;
   }
 
   &__use {
@@ -117,15 +122,17 @@
 
   &__title {
     display: flex;
-    justify-items: center;
+    justify-content: center;
     color: @black;
     font-family: @font1;
     font-size: 20px;
     font-weight: 600;
+    text-align: center;
   }
 
   &__content {
     display: flex;
+    justify-content: center;
     text-align: center;
     color: @black;
     font-family: @font1;
@@ -133,6 +140,7 @@
     font-weight: 400;
     text-decoration: none;
     margin-bottom: 0;
+    max-width: 401px;
   }
 }
 

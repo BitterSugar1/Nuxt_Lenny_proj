@@ -16,14 +16,14 @@
 </template>
 
 <script setup>
+import { useJsonCollection } from "@/data-api";
+
 const list = ref([]);
+const { data: blogFeed } = await useJsonCollection("blog", "/json/blog.json");
 
-  const URL = "http://localhost:3000/json/blog.json";
-
-  const { data } = await useAsyncData(`blog`, () => {
-    return $fetch(URL);
-  });
-  if (data?.value) list.value = data.value;
+if (blogFeed.value) {
+  list.value = blogFeed.value;
+}
 </script>
 
 <style lang="less"></style>

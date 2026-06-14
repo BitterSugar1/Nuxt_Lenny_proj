@@ -5,15 +5,9 @@
 
       <div class="event__about">
         <div class="event__info">
-
           <div class="event__feature event__feature--180g">
-          <SvgIcon
-        class="event__icon"
-        name="rectangle"
-        width="139"
-        height="1"
-      />
-        </div>
+            <SvgIcon class="event__icon" name="rectangle" width="139" height="1" />
+          </div>
 
           <time v-if="datetime" :datetime="data.date" class="event__time">
             {{ datetime.date }}
@@ -21,13 +15,8 @@
           <div class="event__info-text">{{ data.location }}</div>
 
           <div class="event__feature event__feature--180g">
-          <SvgIcon
-        class="event__icon"
-        name="rectangle"
-        width="139"
-        height="1"
-      />
-        </div>
+            <SvgIcon class="event__icon" name="rectangle" width="139" height="1" />
+          </div>
         </div>
 
         <picture class="event__picture">
@@ -37,27 +26,18 @@
 
         <div class="event__info event__info--right">
           <div class="event__feature">
-          <SvgIcon
-        class="event__icon"
-        name="rectangle"
-        width="139"
-        height="1"
-      />
-        </div>
-          <span v-if="datetime" class="event__time event__time--right" data-caption="начало">
-            {{ datetime.time }} 
-            <div class="event__info-text event__info-text--700">начало</div>
-          </span>
+            <SvgIcon class="event__icon" name="rectangle" width="139" height="1" />
+          </div>
+
+          <div v-if="datetime" class="event__time event__time--right" data-caption="начало">
+            {{ datetime.time }}
+            <span class="event__info-text event__info-text--700">начало</span>
+          </div>
           <div class="event__info-text">{{ data.address }}</div>
 
           <div class="event__feature">
-          <SvgIcon
-        class="event__icon"
-        name="rectangle"
-        width="139"
-        height="1"
-      />
-        </div>
+            <SvgIcon class="event__icon" name="rectangle" width="139" height="1" />
+          </div>
         </div>
       </div>
     </header>
@@ -67,38 +47,27 @@
     </div>
   </article>
 
-  <ReserveEvent/>
+  <ReserveEvent />
 </template>
 
 <script setup>
-const slug = computed(() => useRoute().params.event);
-const URL = computed(
-  () => `http://localhost:3000/json/events/${slug.value}.json`,
+import { createDateParts, useJsonEntry } from "@/data-api";
+
+const route = useRoute();
+const eventSlug = computed(() => route.params.event);
+
+const { data } = await useJsonEntry(
+  "event-entry",
+  eventSlug,
+  (slug) => `/json/events/${slug}.json`,
 );
 
-const { data } = await useFetch(URL);
-
-  const datetime = computed(() => {
-    try {
-      const date = new Date(data.value.date);
-      return {
-        date: date.toLocaleDateString(),
-        time: date.toLocaleTimeString("ru-RU", {
-          hour: "2-digit",
-          minute: "2-digit",
-        }),
-      };
-    } catch {
-      return null;
-    }
-  });
-
+const datetime = computed(() => createDateParts(data.value?.date));
 </script>
 
 <style lang="less">
 .event {
   padding: 40px 0 80px;
-  // display: flex;
   align-items: center;
 
   &__container {
@@ -137,7 +106,6 @@ const { data } = await useFetch(URL);
     }
 
     @media @bw768 {
-      // max-width: 468px;
       font-size: 40px;
       margin-bottom: 64px;
     }
@@ -146,9 +114,9 @@ const { data } = await useFetch(URL);
       font-size: 30px;
     }
 
-     @media @bw500 {
+    @media @bw500 {
       font-size: 20px;
-     }
+    }
 
     @media @bw370 {
       margin-bottom: 40px;
@@ -176,9 +144,9 @@ const { data } = await useFetch(URL);
       grid-template-rows: 262px 56px;
       gap: 40px 20px;
       grid-template-areas:
-        "Sade Sade"
+        "picture picture"
         "time right";
-        margin-left: 20%;
+      margin-left: 20%;
     }
 
     @media @bw370 {
@@ -186,8 +154,9 @@ const { data } = await useFetch(URL);
       margin-left: 38px;
     }
   }
-&__info{
-  display: flex;
+
+  &__info {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     font-family: @font3;
@@ -216,12 +185,10 @@ const { data } = await useFetch(URL);
 
       @media @bw1340 {
         margin-left: 50px;
-        margin-right: 0;
       }
 
       @media @bw768 {
         margin-left: 41px;
-        margin-right: 0;
       }
 
       @media @bw650 {
@@ -229,8 +196,7 @@ const { data } = await useFetch(URL);
         order: 2;
       }
     }
-}
-  
+  }
 
   &__picture {
     display: flex;
@@ -256,12 +222,10 @@ const { data } = await useFetch(URL);
 
     @media @bw650 {
       display: grid;
-      grid-area: Sade;
-      grid-column: 1/3;
-      // grid-column-end: 3;
+      grid-area: picture;
+      grid-column: 1 / 3;
       justify-content: center;
       align-items: center;
-      // margin-left: 50px;
       margin-top: 0;
       margin-bottom: 0;
     }
@@ -269,47 +233,26 @@ const { data } = await useFetch(URL);
 
   &__time {
     display: flex;
-    // flex-direction: column;
-    // justify-content: center;
     font-family: @font3;
     font-size: 30px;
     font-weight: 300;
     color: @black;
     text-align: right;
-    // margin-right: 58px;
-
-    // @media @bw1340 {
-    //   margin-right: 50px;
-    // }
 
     @media @bw768 {
       font-size: 18px;
     }
 
     @media @bw650 {
-      
       grid-area: time;
-      // order: 3;
     }
 
     &--right {
-      // margin-left: 58px;
       margin-right: 0;
       text-align: left;
 
-      @media @bw1340 {
-        // margin-left: 50px;
-        margin-right: 0;
-      }
-
-      @media @bw768 {
-        // margin-left: 41px;
-        margin-right: 0;
-      }
-
       @media @bw650 {
         grid-area: right;
-        // order: 2;
       }
     }
   }
@@ -329,7 +272,6 @@ const { data } = await useFetch(URL);
     }
 
     &--right {
-      display: flex;
       justify-content: flex-start;
     }
 
@@ -355,7 +297,6 @@ const { data } = await useFetch(URL);
       }
 
       @media @bw650 {
-        grid-area: 700;
         margin-top: -8px;
       }
     }
@@ -365,7 +306,7 @@ const { data } = await useFetch(URL);
     display: flex;
     text-align: right;
     margin-top: 11px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     font-size: 16px;
     font-weight: 700;
 
@@ -387,14 +328,13 @@ const { data } = await useFetch(URL);
   }
 
   &__feature {
-    margin-bottom: 0px;
-    margin-top: 0px;
+    margin-bottom: 0;
+    margin-top: 0;
 
     &--180g {
       transform: rotate(180deg);
 
       @media @bw650 {
-        grid-area: 180g;
         margin-bottom: -7px;
         margin-top: 7px;
       }
@@ -476,13 +416,13 @@ const { data } = await useFetch(URL);
   }
 
   &__pic1 {
-     @media @bw768 {
+    @media @bw768 {
       max-width: 324px;
       max-height: 215px;
-     }
+    }
   }
 
-   &__bi_play {
+  &__bi_play {
     position: absolute;
     bottom: 180px;
     right: 350px;
@@ -492,10 +432,10 @@ const { data } = await useFetch(URL);
   &__pic4 {
     position: relative;
 
-     @media @bw768 {
+    @media @bw768 {
       max-width: 322px;
       max-height: 214px;
-     }
+    }
   }
 }
 
@@ -510,17 +450,18 @@ const { data } = await useFetch(URL);
 
   h1,
   h2,
-  h4,
+  h3,
   h4,
   h5,
   h6 {
-    // margin: 1.3em 307px 0.8em;
     font-family: @font1;
     color: @black;
     font-weight: 600;
+
     &:first-child {
       margin-top: 0;
     }
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -528,25 +469,13 @@ const { data } = await useFetch(URL);
 
   h1 {
     font-size: 32px;
-   
-    
-    // font-weight: 700;
-    // width: 247px;
-    // height: 25px;
-    // top: 1029px;
-    // left: 293px;
   }
 
   h2 {
     font-size: 28px;
-    // font-weight: 700;
-    // width: 247px;
-    // height: 25px;
-    // top: 1029px;
-    // left: 293px;
   }
 
-  h4 {
+  h3 {
     font-size: 24px;
   }
 
@@ -566,13 +495,11 @@ const { data } = await useFetch(URL);
   ul,
   p {
     margin: 20px 0;
-    // margin-left: 307px;
-    // font-family: @font1;
-    // font-weight: 400;
-    // font-size: 16px;
+
     &:first-child {
       margin-top: 0;
     }
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -590,6 +517,7 @@ const { data } = await useFetch(URL);
     box-sizing: border-box;
     position: relative;
     padding-left: 20px;
+
     &::before {
       content: "";
       display: block;
@@ -611,6 +539,7 @@ const { data } = await useFetch(URL);
 
   ol > li {
     counter-increment: li;
+
     &::before {
       content: counter(li) + ". ";
       box-sizing: border-box;
@@ -625,11 +554,12 @@ const { data } = await useFetch(URL);
   ol > li {
     margin: 0 0 8px;
     cursor: default;
+
     &:last-child {
       margin-bottom: 0;
     }
   }
-  
+
   img,
   iframe,
   figure {
@@ -641,9 +571,11 @@ const { data } = await useFetch(URL);
   & > iframe,
   & > figure {
     margin: 30px 0;
+
     &:first-child {
       margin-top: 0;
     }
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -667,9 +599,11 @@ const { data } = await useFetch(URL);
     font-weight: 500;
     font-size: 13px;
     text-align: left;
+
     &:first-child {
       margin-top: 0;
     }
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -679,6 +613,7 @@ const { data } = await useFetch(URL);
     &[align],
     &.alignright {
       margin: 5px 0;
+
       & + figcaption {
         display: none;
       }
@@ -709,6 +644,7 @@ const { data } = await useFetch(URL);
     text-decoration: underline;
     transition: color 0.2s;
     cursor: pointer;
+
     &:hover {
       color: @red;
     }
@@ -716,7 +652,6 @@ const { data } = await useFetch(URL);
 
   blockquote {
     width: 868px;
-    // height: 60px;
     position: relative;
     margin: 30px 0;
     padding: 0 0 0 20px;
@@ -748,10 +683,12 @@ const { data } = await useFetch(URL);
     @media @bw1340 {
       width: 831px;
     }
-     @media @bw768 {
+
+    @media @bw768 {
       width: 600px;
     }
-     @media @bw600 {
+
+    @media @bw600 {
       width: 282px;
     }
   }
@@ -759,10 +696,10 @@ const { data } = await useFetch(URL);
   b {
     font-weight: 700;
   }
- img {
-  display: flex;
-    justify-content: center;
- }
-}
 
+  img {
+    display: flex;
+    justify-content: center;
+  }
+}
 </style>

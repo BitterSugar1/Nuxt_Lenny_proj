@@ -32,7 +32,7 @@
       </nav>
 
       <div class="page-header__right-block">
-        <a href="#" class="page-header__user-btn"> 
+        <button type="button" class="page-header__user-btn"> 
           Войти 
            <SvgIcon
             class="page-header__user-icon"
@@ -40,7 +40,7 @@
             width="21"
             height="18"
           />
-        </a>
+        </button>
 
         <button 
         type="button" 
@@ -54,12 +54,20 @@
 </template>
 
 <script setup>
-  const store = useStore();
-  const navActive = computed(() => store.navActive);
+  const route = useRoute();
+  const uiStore = useUiStore();
+  const navActive = computed(() => uiStore.isNavigationOpen);
 
   const toggleNav = () => {
-    store.navActive = !store.navActive;
+    uiStore.toggleNavigation();
   };
+
+  watch(
+    () => route.fullPath,
+    () => {
+      uiStore.closeNavigation();
+    },
+  );
 </script>
 
 

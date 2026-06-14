@@ -1,7 +1,7 @@
 <template>
   <ClientOnly>
     <teleport to="body">
-      <div v-if="isActive" class="modal-window">
+      <div v-if="isActive" class="modal-window" @click.self="close">
         <div class="modal-window__wrapper">
           <div class="modal-window__sticky-close">
             <button
@@ -38,13 +38,13 @@
     },
   });
 
-  const store = useStore();
+  const uiStore = useUiStore();
   const isActive = computed(() => {
-    return props.name ? store.modal[props.name] : null;
+    return props.name ? uiStore.modalState[props.name] : null;
   });
 
   const close = () => {
-    if (props.name) store.closeModal(props.name);
+    if (props.name) uiStore.closeModal(props.name);
   };
 </script>
 
@@ -82,7 +82,7 @@
     background-color: @gray;
     background-image: url(../assets/images/noise.png);
     background-position: 0 0, 0 0;
-    background-size: auto 100% auto;
+    background-size: auto 100%;
     background-repeat: repeat, repeat-y;
 
     @media @bw1340 {
