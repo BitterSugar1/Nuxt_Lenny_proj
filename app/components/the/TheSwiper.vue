@@ -8,6 +8,9 @@
       :speed="speed"
       :grab-cursor="true"
        :modules="[Navigation, Pagination]"
+      :observer="true"
+      :observe-parents="true"
+      :update-on-window-resize="true"
       :pagination="{ clickable: true, el: '.swiper-pagination-bullets' }"
       :navigation="{
         prevEl: '.swiper-arrow-prev',

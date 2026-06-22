@@ -3,7 +3,7 @@
     <div class="events__container">
       <AppListing title="Мероприятия" class="events__listing">
         <EventCard
-          v-for="(card, index) in list"
+          v-for="(card, index) in eventsFeed"
           :key="index"
           :data="card"
           class="app-listing__card"
@@ -32,14 +32,7 @@
 </template>
 
 <script setup>
-import { useJsonCollection } from "@/data-api";
-
-const list = ref([]);
 const { data: eventsFeed } = await useJsonCollection("events-list", "/json/events.json");
-
-if (eventsFeed.value) {
-  list.value = eventsFeed.value;
-}
 </script>
 
 <style scoped lang="less">

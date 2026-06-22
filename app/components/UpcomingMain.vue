@@ -3,11 +3,23 @@
   <div class="upcoming__wrapper">
     <div class="upcoming__container">
       <h2 class="upcoming__title section-title">Мероприятия</h2>
-       <TheSwiper
-          :component="EventCard"
-          :list="list"
-          class="events-upcoming__swiper"
-        />
+       <ClientOnly>
+         <TheSwiper
+            :component="EventCard"
+            :list="eventsFeed"
+            class="events-upcoming__swiper"
+          />
+         <template #fallback>
+           <div class="upcoming__fallback">
+             <EventCard
+               v-for="(card, index) in eventsFeed"
+               :key="index"
+               :data="card"
+               class="upcoming__fallback-card"
+             />
+           </div>
+         </template>
+       </ClientOnly>
       <NuxtLink to="/events" class="listing__link link">Смотреть все</NuxtLink>
     </div>
   </div>
@@ -16,14 +28,8 @@
 
 <script setup>
 import { EventCard } from "#components";
-import { useJsonCollection } from "@/data-api";
 
-const list = ref([]);
 const { data: eventsFeed } = await useJsonCollection("upcoming", "/json/events.json");
-
-if (eventsFeed.value) {
-  list.value = eventsFeed.value;
-}
 </script>
 
 <style lang="less">
@@ -50,6 +56,18 @@ if (eventsFeed.value) {
      }
     .container();
   }
+
+&__fallback {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  @media @bw1020 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media @bw650 {
+    grid-template-columns: 1fr;
+  }
+}
 
 &__wrapper {
   display: flex;

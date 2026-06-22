@@ -51,8 +51,6 @@
 </template>
 
 <script setup>
-import { createDateParts, useJsonEntry } from "@/data-api";
-
 const route = useRoute();
 const eventSlug = computed(() => route.params.event);
 
@@ -145,7 +143,7 @@ const datetime = computed(() => createDateParts(data.value?.date));
       gap: 40px 20px;
       grid-template-areas:
         "picture picture"
-        "time right";
+        "time right-col";
       margin-left: 20%;
     }
 
@@ -192,7 +190,7 @@ const datetime = computed(() => createDateParts(data.value?.date));
       }
 
       @media @bw650 {
-        grid-area: right;
+        grid-area: right-col;
         order: 2;
       }
     }
@@ -252,7 +250,7 @@ const datetime = computed(() => createDateParts(data.value?.date));
       text-align: left;
 
       @media @bw650 {
-        grid-area: right;
+        grid-area: right-col;
       }
     }
   }

@@ -3,7 +3,7 @@
     <div class="events__container">
     <AppBlog title="Блог" class="events__listing">
       <BlogCard
-        v-for="(card, index) in list"
+        v-for="(card, index) in blogFeed"
         :key="index"
         :data="card"
         class="app-listing__card"
@@ -24,14 +24,7 @@
 </template>
 
 <script setup>
-  import { useJsonCollection } from "@/data-api";
-
-  const list = ref([]);
   const { data: blogFeed } = await useJsonCollection("blog-list", "/json/blog.json");
-
-  if (blogFeed.value) {
-    list.value = blogFeed.value;
-  }
 </script>
 
 <style scoped lang="less">
