@@ -1,55 +1,52 @@
 <template>
   <div class="information">
-
-  <div class="information__inform">
-
-    <div class="information__price">
-      <SvgIcon
-        class="information__square"
-        name="information"
-        width="110"
-        height="110"
+    <div class="information__inform">
+      <div class="information__price">
+        <SvgIcon
+          class="information__square"
+          name="information"
+          width="110"
+          height="110"
         />
-     
-      <h3 class="information__title">Цены</h3>
-      <p class="information__content">Цены, указанные на сайте носят информационный характер. Мы придерживаемся
-        индивидуального подхода в работе с клиентом.</p>
 
-    </div>
+        <h3 class="information__title">Цены</h3>
+        <p class="information__content">
+          Цены, указанные на сайте носят информационный характер. Мы придерживаемся
+          индивидуального подхода в работе с клиентом.
+        </p>
+      </div>
 
-    <div class="information__contact">
-      <SvgIcon
-        class="information__square"
-        name="contact"
-        width="110"
-        height="110"
+      <div class="information__contact">
+        <SvgIcon
+          class="information__square"
+          name="contact"
+          width="110"
+          height="110"
         />
-      
-      <h3 class="information__title">Контакты</h3>
-      <p class="information__content">Отдел организации мероприятий </p>
-      <a class="information__content" href="tel:8 (3822) 90-72-56">8 (3822) 90-72-56</a>
-      <a class="information__content" href="mailto:idat@tusur.ru">idat@tusur.ru</a>
-    </div>
 
-    <div class="information__handshake">
-      <SvgIcon
-        class="information__square"
-        name="handshake"
-        width="110"
-        height="110"
+        <h3 class="information__title">Контакты</h3>
+        <p class="information__content">Отдел организации мероприятий</p>
+        <a class="information__content" href="tel:8 (3822) 90-72-56">8 (3822) 90-72-56</a>
+        <a class="information__content" href="mailto:idat@tusur.ru">idat@tusur.ru</a>
+      </div>
+
+      <div class="information__handshake">
+        <SvgIcon
+          class="information__square"
+          name="handshake"
+          width="110"
+          height="110"
         />
-      <h3 class="information__title">Преимущество</h3>
-      <p class="information__content">Мы имеем все возможности для того, чтобы помочь как малому бизнесу и молодым
-        талантам, так и большим корпорациям и холдингам.</p>
 
+        <h3 class="information__title">Преимущество</h3>
+        <p class="information__content">
+          Мы имеем все возможности для того, чтобы помочь как малому бизнесу и молодым
+          талантам, так и большим корпорациям и холдингам.
+        </p>
+      </div>
     </div>
-
   </div>
-
-</div>
 </template>
-
-<script setup></script>
 
 <style lang="less">
 .information {
@@ -86,7 +83,6 @@
     background-color: @black;
     position: relative;
     z-index: 1;
-
   }
 
   &__symbol {
