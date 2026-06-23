@@ -143,19 +143,4 @@
     max-width: 401px;
   }
 }
-
-
-//   &__container {
-//     .container();
-//   }
-//   display: grid;
-//   gap: 65px 11%;
-//   grid-template-columns: 444,66px 1fr;
-//   grid-template-areas:
-//     "inform contact handshake";
-
-//   justify-items: center;
-
-//   width: 100%;
-// }
 </style>

@@ -1,4 +1,5 @@
 <template>
+  <div>
   <div class="events">
     <div class="events__container">
       <AppListing title="Мероприятия" class="events__listing">
@@ -29,6 +30,7 @@
   <TableEvents />
   <AppOffers />
   <InformationEvents />
+  </div>
 </template>
 
 <script setup>
